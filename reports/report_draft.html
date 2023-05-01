@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Real Estate</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4eb11830-1d78-43b3-8036-bcc15206a644" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🏡</span></div><h1 class="page-title">Real Estate</h1><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Status 2</th><td><span class="selected-value select-value-color-blue">In Progress</span></td></tr><tr class="property-row property-row-file"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFile"><path d="M12.5938 8.44043L7.54883 13.4854C6.26367 14.7773 4.54102 14.6475 3.44043 13.54C2.32617 12.4326 2.20312 10.7168 3.49512 9.4248L10.3926 2.52734C11.1445 1.77539 12.2725 1.63867 13.0039 2.37695C13.7422 3.11523 13.6055 4.22949 12.8535 4.98828L6.08594 11.7627C5.77832 12.0703 5.41602 11.9814 5.2041 11.7764C4.99902 11.5576 4.91016 11.2021 5.21777 10.8877L9.93457 6.1709C10.1738 5.93164 10.1875 5.58301 9.96191 5.35059C9.72949 5.13184 9.38086 5.13867 9.1416 5.37793L4.39746 10.1152C3.67285 10.8535 3.7002 11.9746 4.34961 12.624C5.05371 13.3281 6.12012 13.3145 6.8584 12.5762L13.6602 5.77441C14.9795 4.45508 14.9316 2.71875 13.7764 1.55664C12.6416 0.428711 10.8779 0.34668 9.55176 1.66602L2.61328 8.61816C0.883789 10.3477 1 12.8291 2.57227 14.4014C4.14453 15.9668 6.63281 16.0898 8.3623 14.3672L13.4414 9.28809C13.6738 9.0625 13.667 8.64551 13.4346 8.41992C13.209 8.18066 12.833 8.21484 12.5938 8.44043Z"></path></svg></span>Files &amp; media</th><td></td></tr></tbody></table></header><div class="page-body"><h1 id="465a9a68-b465-41ea-8107-487cf2e5e9b9" class="">Data Analytics / Science Project on Real Estate Market Analysis</h1><h2 id="d9386f1d-a599-4e3c-9f8c-f4bc3a94935e" class="">Introduction</h2><p id="70bade93-fd9f-4078-9bc2-e09733eeebca" class="">
+</p><ul id="aad056c5-e2b2-4c51-a1ca-e0874aa1c555" class="bulleted-list"><li style="list-style-type:disc">The purpose of this project is to analyze the real estate market and gain insights into factors such as location, housing prices, and demographics that can help identify the hottest real estate markets. While the project does not specifically focus on ROI, it can provide valuable information that can help inform investment decisions in the real estate market. The predictive modeling techniques used in the project can help identify areas that are likely to experience increased demand and higher prices in the future, which may be of interest to those looking to buy in the next year.</li></ul><ul id="aa3c91be-768a-4c89-8fce-0725527ecdda" class="bulleted-list"><li style="list-style-type:disc">The project does not specifically focus on the impact of interest rates on the real estate market. However, rising interest rates can make it more expensive to borrow money to buy a home, which could potentially decrease demand for housing and lead to lower prices. On the other hand, rising interest rates could also be a sign of a strong economy, which could lead to increased demand for housing. Ultimately, the impact of rising interest rates on the real estate market will depend on a variety of factors, including the state of the economy, the availability of credit, and more.</li></ul><h2 id="2c34ce1d-8c68-4326-b457-2219f5b52ca6" class="">Data Collection</h2><p id="57a57900-c6fe-4473-a370-39effe128a74" class="">
+</p><ol type="1" id="dcfd36b8-77d0-408d-b442-308d94943f6c" class="numbered-list" start="1"><li>I will be working with Redfin&#x27;s weekly housing market data to analyze trends in the real estate market for Nashville, TN. The Redfin Weekly Housing Market Data is a comprehensive dataset that provides weekly insights into the real estate market in major metropolitan areas across the United States. The dataset includes a wide range of metrics such as the number of homes sold, median home sale prices, days on market, and other relevant information. These metrics can be used to analyze the real estate market, forecast future trends, and make informed decisions about buying or selling properties. The Redfin Weekly Housing Market Data is updated every week and can be filtered by location, property type, and time period</li></ol><p id="dfda9a6a-36d2-4741-9c13-de26d40ea8b0" class="">
+</p><figure id="0b0aaab1-b46e-48f3-b796-84facbb3c2cf"><a href="https://www.redfin.com/news/data-center/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Data Center</div><div class="bookmark-description">View and download the latest housing market data from Redfin, including home prices, sales, inventory, new listings, and days on market.</div></div><div class="bookmark-href"><img src="https://www.redfin.com/news/wp-content/uploads/2020/09/Redfin-WEB_Icon-WhiteOnRed.jpg" class="icon bookmark-icon"/>https://www.redfin.com/news/data-center/</div></div></a></figure><p id="b4ca7cdc-aba9-4519-ac0f-7378d3433668" class="">
+</p><ol type="1" id="cddb808e-3b1b-47f8-a73d-882275c2005a" class="block-color-yellow_background numbered-list" start="1"><li><strong>U.S. Census Bureau</strong>: I obtained data from the U.S. Census Bureau on population growth, demographic trends, and other important metrics that can help identify areas with high ROI.</li></ol><ol type="1" id="1d59b2c9-65fc-4ed4-abf0-fdd63248ed5d" class="block-color-yellow_background numbered-list" start="2"><li><strong>Bureau of Labor Statistics</strong>: I obtained data from the Bureau of Labor Statistics on job growth, unemployment rates, and other important economic indicators that can help identify areas with high ROI.</li></ol><ol type="1" id="bbd72c86-e98e-4c21-98db-a840836038cd" class="block-color-yellow_background numbered-list" start="3"><li><strong>Federal Housing Finance Agency</strong>: I obtained data from the Federal Housing Finance Agency on home prices, mortgage rates, and other important metrics that can help analyze the real estate market.</li></ol><ol type="1" id="9f7df561-6991-4d97-b35f-cc48ccffef96" class="block-color-yellow_background numbered-list" start="4"><li><strong>National Association of Realtors</strong>: I obtained data from the National Association of Realtors on home sales, home prices, and other important metrics that can help analyze the real estate market.</li></ol><p id="067158cf-3385-4004-af9c-fc476f75eb3e" class="">
+</p><p id="120bcfe4-b5a2-4baf-9c29-1723243f2288" class=""><strong>Important Metrics for Analyzing the Real Estate Market</strong></p><p id="ae627032-bf2b-4c73-8f4b-0d3958299194" class="">
+</p><p id="86ff7bc1-de25-4362-958a-9348b415e6c7" class="">To analyze the real estate market and identify areas with high ROI potential, it&#x27;s important to consider several metrics that can provide valuable insights. Here are some key metrics to keep in mind:</p><p id="0540b730-be0f-4c62-8e1b-506ee82ffa44" class="">
+</p><ol type="1" id="11beb2c7-775f-42ca-9d26-e7d47c615ae0" class="numbered-list" start="1"><li><strong>Price-to-Rent Ratio</strong>: The price-to-rent ratio compares the cost of buying a property to the cost of renting it. A lower ratio suggests that it&#x27;s more affordable to buy, while a higher ratio indicates that it&#x27;s more affordable to rent. When analyzing the real estate market, it&#x27;s important to consider the price-to-rent ratio to gain insight into the current state of the rental market and determine whether there is potential for a good return on investment.</li></ol><ol type="1" id="544df1c9-7561-40db-b296-c2fd256bb12d" class="numbered-list" start="2"><li><strong>Vacancy Rates</strong>: Vacancy rates measure the percentage of rental properties that are currently vacant in a given area. A lower vacancy rate suggests high demand for rental properties, while a higher vacancy rate indicates lower demand. When analyzing the real estate market, it&#x27;s important to consider vacancy rates to determine the level of competition among property owners and to identify areas with a high potential for rental income.</li></ol><ol type="1" id="7095b924-f765-41c8-810e-c8254c31b7dc" class="numbered-list" start="3"><li><strong>Population Growth</strong>: Population growth measures the rate at which the population is growing in a given area. Areas with a high population growth rate are likely to experience higher demand for housing, which can lead to higher property values and rental rates. When analyzing the real estate market, it&#x27;s important to consider population growth to determine whether an area has a potential for long-term growth.</li></ol><ol type="1" id="7358fcfb-3ce7-4b4c-959f-3f66e27d9fe8" class="numbered-list" start="4"><li><strong>Job Growth</strong>: Job growth measures the rate at which new jobs are being created in a given area. Areas with strong job growth are likely to attract more people, which can lead to higher demand for housing and higher property values. When analyzing the real estate market, it&#x27;s important to consider job growth to identify areas with potential for long-term growth and stability.</li></ol><ol type="1" id="5bef96c6-a8dd-4780-a75e-8389538bd8e8" class="numbered-list" start="5"><li><strong>Median Home Price</strong>: Median home price measures the median price of homes in a given area. Areas with higher median home prices may indicate high demand and limited supply, which can lead to higher property values and rental rates. When analyzing the real estate market, it&#x27;s important to consider median home price to determine the affordability of properties in a given area.</li></ol><ol type="1" id="f5a0a619-9aa7-4888-86d2-4cc910bb9489" class="numbered-list" start="6"><li><strong>Cap Rate</strong>: Cap rate measures the rate of return on a real estate investment. A higher cap rate suggests a higher potential return on investment. When analyzing the real estate market, it&#x27;s important to consider the cap rate to identify areas with the potential for a good return on investment.</li></ol><ol type="1" id="125b9a14-6983-4de5-829d-cdbb1a123947" class="numbered-list" start="7"><li><strong>Gross Rent Multiplier (GRM)</strong>: Gross rent multiplier (GRM) compares the price of a property to the annual rental income it generates. A lower GRM suggests a higher potential return on investment. When analyzing the real estate market, it&#x27;s important to consider the GRM to identify areas with the potential for a good return on investment.</li></ol><p id="da6fb689-2b6c-4110-8ba9-106c4358fd84" class="">By considering these important metrics, you can gain a better understanding of the real estate market and identify areas with high ROI potential.</p><p id="8892f675-3a91-40aa-9c94-c060601dca7f" class="">
+</p><h2 id="34d969d3-83cc-40a3-8064-6a1537a44cdd" class="">Case Studies</h2><ol type="1" id="cf5bf546-ab1e-47ed-8c69-62a981869ab2" class="numbered-list" start="1"><li><strong>Case Study: Nashville, Tennessee</strong>: This case study examines the factors behind the increase in home prices in Nashville, including the city&#x27;s strong population growth and increasing demand for housing. It also looks at the impact of the city&#x27;s growing reputation as a music and entertainment destination on the local real estate market.</li></ol><h2 id="0db8ec33-7046-4953-b9df-99fb7d89cf34" class="">Data Cleaning and Preparation</h2><ul id="cada01f3-3e56-4cd7-900f-3bc7e93994d4" class="bulleted-list"><li style="list-style-type:disc"><strong>Redfin Weekly Housing Market Data</strong>: I will be working with Redfin&#x27;s weekly housing market data to analyze trends in the real estate market for Nashville, TN. <ul id="5439a601-db66-4ee8-b5e9-450261fac84a" class="bulleted-list"><li style="list-style-type:circle">The first step in analyzing the real estate market for Nashville is to isolate the Nashville data and surrounding areas from the larger dataset.<ul id="f2a260f7-bb4c-40d1-9c20-bfa1568bd3ec" class="bulleted-list"><li style="list-style-type:square">Cheatham County.</li></ul><ul id="82e02d8d-51e0-412e-81c3-92032eb030af" class="bulleted-list"><li style="list-style-type:square">Davidson County.</li></ul><ul id="d5bcf19c-ef28-490b-ba61-8e5674ae12ca" class="bulleted-list"><li style="list-style-type:square">Dickson County.</li></ul><ul id="5e485f73-bdf1-4cbc-9e17-977657b4d68a" class="bulleted-list"><li style="list-style-type:square">Maury County.</li></ul><ul id="5046a416-6004-4dfc-a889-b3b181f911fb" class="bulleted-list"><li style="list-style-type:square">Montgomery County.</li></ul><ul id="953b3ee2-9a14-417c-8efc-7f7802652290" class="bulleted-list"><li style="list-style-type:square">Robertson County.</li></ul><ul id="580de03d-9456-4501-b101-a99bf9f84c59" class="bulleted-list"><li style="list-style-type:square">Rutherford County.</li></ul><ul id="6091a880-9601-48d6-aa63-f0259795cdbd" class="bulleted-list"><li style="list-style-type:square">Sumner County.</li></ul></li></ul><ul id="8e1e35d9-9504-42c1-a408-36a0ceac3183" class="bulleted-list"><li style="list-style-type:circle">The second step in analyzing predictors for Nashville is to identify the variables of interest. These may include median home prices, number of homes sold, days on market, and other relevant variables.</li></ul></li></ul><h2 id="8d53995c-a68d-425f-a9e0-01346049cd26" class="">Exploratory Data Analysis</h2><ul id="140432ff-5354-4489-9b7a-61b10c0bb3db" class="bulleted-list"><li style="list-style-type:disc">Discuss the exploratory data analysis techniques that will be used to gain insights into the real estate market, such as data visualization, summary statistics, and more.</li></ul><ul id="ec24d29b-2614-4ff1-8141-d358a24825ee" class="bulleted-list"><li style="list-style-type:disc">Provide examples of the types of questions that will be answered through exploratory data analysis.</li></ul><h2 id="8533551c-46f7-442d-8a05-4ab5a407a916" class="">Predictive Modeling</h2><ul id="be753dc9-28d8-431b-8818-fa2b853af9e1" class="bulleted-list"><li style="list-style-type:disc">Explain the predictive modeling techniques that will be used to identify the hottest real estate markets, such as regression analysis, clustering, and more.</li></ul><ul id="2100ed65-1674-410d-9573-267b6d59a7dd" class="bulleted-list"><li style="list-style-type:disc">Discuss the factors that will be considered when building the predictive model, such as location, housing prices, demographics, and more.</li></ul><h2 id="df6ed1c8-f169-43b9-88ec-61c4aff70e0c" class="">Interpretation of Results</h2><ul id="6697f821-a17d-4701-9d83-5ac0af79b5dd" class="bulleted-list"><li style="list-style-type:disc">Discuss how the results of the analysis will be interpreted and presented to stakeholders, such as through data visualization, reports, and presentations.</li></ul><ul id="2844e933-a46b-44ea-a08f-0a24be3e3e97" class="bulleted-list"><li style="list-style-type:disc">Emphasize the importance of presenting the results in a clear and concise manner that can be easily understood by non-technical stakeholders.</li></ul><h2 id="3f474285-154a-4095-b634-bc9522987fcb" class="">Conclusion</h2><ul id="f2aa2215-63ba-47c7-bba4-81b9a63bef9e" class="bulleted-list"><li style="list-style-type:disc">Summarize the key points of the project and emphasize the importance of the insights gained from the data analysis.</li></ul><ul id="0accb7da-0c16-48ba-a311-97cc235978e4" class="bulleted-list"><li style="list-style-type:disc">Discuss the potential implications of the findings for the real estate industry and beyond.</li></ul></div></article></body></html>
